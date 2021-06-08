@@ -1,43 +1,32 @@
-# deliveroo-web-scraper 
-The aim of this project is to create a script that scrapes data from Deliveroo. Data is scraped on all restaurants that deliver to the postcode of choice. 
+# Welcome to my Deliveroo Web Scraper and Data Analysis Notebook!
 
-Deliveroo must deliver to your postcode in order for this to work and the postcode must be in the UK
+Imagine we work at Deliveroo. We have lots of data on all of our restaurants and using this data, you want to gain some insight into how the company could increase order value and/or order frequency. 
 
-## Questions: 
-1. What cuisines are most popular near me? 
-2. What is the quality of food in my vicinity?
-3. How do the qualities of cuisines vary? 
-4. Is there a relationship between popularity and quality?
+For example, we may want to look at what cuisines are most / least common on the platform for certain postcodes. If a cuisine is undersupplied in the area, we could set up dark kitchens serving that cuisine or try to partner up with more restaurants of that cuisine.
 
-To answer these questions and others, we scrape the following data.
-## Data Fields:
+Another important question is how relevant restaurant reviews are. Do restaurants with a better rating get more orders? Or are the ratings on the platform so inflated that the difference between a 4.1 and a 4.5 is irrelevant? 
+
+### But we do not work at Deliveroo...
+
+Unfortunately, we do not have the data. Therefore, we will first need to scrape it from Deliveroo's website and clean it up before analysing it. Given this, it will take too long to get this data for all postcodes in a city. Therefore, we will look at the analysis for one postcode for now.   
+
+The aim of this project is to be able to scrape key information on all the restaurants that are active at the time of scraping. The data then needs to be cleaned so it can be analysed. Be wary that if you scrape the data in the morning, lots of restaurants may be closed. As a result, they may not be captured when scraping. Therefore, I recommend scraping in the evening for the best results (unless you are specifically interested in the websites serving at a certain time of day). 
+
+I wanted to make this as accessible for beginners as possible, so I've outlined all of my steps. I am by no means an expert, and feedback is always much appreciated!
+
+In order to achieve our aim, we will need the following restaurant data: 
 1. Restaurant Name
-2. Cuisines
-3. Rating Score
-4. Number of Reviews
-5. Delivery Time
+2. Restaurant Rank (where it is positioned on the website)
+3. Cuisines
+4. Rating (number of ratings and score)
+5. Distance
 6. Delivery Cost
-7. Distance 
+7. Delivery Time
 
-The data is in a format where we can't just grab it. We need to search through the html of the page to find all the relevant information we want. When searching, there will several problems to solve.
-## Problems to solve:
-1. Given the site has an infinite scroll feature, how can we get a complete html file to search through?  
-2. Within the html, how do we identify an individual restaurant?
-3. Within the data on an individual restaurant, how can we pick out the pieces of data we want?
-4. If the format is not consistent, can we possibly account for all the edge cases? 
+Using this information, we can perform some data visualisations and simple analysis. For example, we may want to see what is the best cuisine in a postcode, or see if there is a relationship between the rating score and order frequency. These questions are important to understand as they drive the number of orders Deliveroo gets, and thus their revenues.
 
-Websites can constantly change, so the scraping techniques that work today may not work in the future.
-## Limitations: 
-1. The structure of the website may change, meaning the way to identify individual restaurants may stop working
-2. The way that restaurant data is structured may change, meaning the way to identify restaurant data may stop working
+In addition, it is also interesting to look at the price different restaurants charge for the same dish (I use Egg Fried Rice as an example). If some restaurants are undercharging, they could be told to slightly raise their price. Assuming this price increase doesn't affect their number of orders for Egg Fried Rice, order value will go up and thus Deliveroo's revenues would rise.  
 
-To aid us along the way, we use some really helpful Python librarires. 
-## Libraries:
-1. Selenium - To simulate an instance of Chrome and scroll through the whole webpage
-2. BeautifulSoup4 - To parse the html of the website
-3. Time - To pause execution so that the instance of Chrome can load the webpage while scrolling
-4. Numpy - Not directly used, but used by Pandas. Provides high-performance for array-like structures
-5. Pandas - To create a data structure that is easy to manipulate and interpret for visualisation
-7. NLTK - Natural Language Processing Library. We use a helpful tool to recognise sentences
-8. Matplotlib - Not directly used, but used by Seaborn. Data visualisation library
-9. Seaborn - A beautiful data visualisation library
+### This only works for the UK at the moment
+
+# Feedback is always much appreciated! I am very keen on how to both improve this notebook and all my Data Science / Programming skills!
